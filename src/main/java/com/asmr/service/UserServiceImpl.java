@@ -12,14 +12,14 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserRepository userrepository;
 
-	@Override
 	@Transactional
+	@Override
 	public void insertUser(UserVO uservo) {
 		userrepository.insertUser(uservo);
 	}
 
-	@Override
 	@Transactional
+	@Override
 	public boolean checkUserId(String id) {
 		if (userrepository.checkUserId(id) == null)
 			return true;
@@ -27,21 +27,21 @@ public class UserServiceImpl implements UserService {
 			return false;
 	}
 
-	@Override
 	@Transactional
+	@Override
 	public boolean loginUser(UserVO uservo) {
 		UserVO temp = userrepository.loginUser(uservo);
 		return uservo.getPw().equals(temp.getPw());
 	}
 
-	@Override
 	@Transactional
+	@Override
 	public void updateUser(UserVO uservo) {
 		userrepository.updateUser(uservo);
 	}
 
-	@Override
 	@Transactional
+	@Override
 	public void deleteUser(String id) {
 		userrepository.deleteUser(id);
 	}
